@@ -25,7 +25,7 @@ CopilotKit Coder is a powerful code snippet generator that leverages AI to help 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/copilotkit-coder.git
+   git clone https://github.com/StephCurry07/CodeSnippetGet-CPKit.git
    ```
 
 2. Navigate to the project directory:
