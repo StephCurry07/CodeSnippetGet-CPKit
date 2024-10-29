@@ -41,24 +41,24 @@ export default function FullscreenSnippet() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <Card className="w-full max-w-4xl mx-auto">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>Fullscreen Code Snippet</CardTitle>
-          <Button variant="outline" size="sm" onClick={copyToClipboard}>
-            <Copy className="h-4 w-4 mr-2" />
-            Copy Code
-          </Button>
-        </CardHeader>
-        <CardContent>
-          <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-            <code className={`language-${language}`}>{decodeURIComponent(snippet)}</code>
-          </pre>
-        </CardContent>
-      </Card>
-      {notification && (
-        <Notification message={notification} onClose={() => setNotification(null)} />
-      )}
-    </div>
+      <div className="min-h-screen bg-background p-8">
+        <Card className="w-full max-w-4xl mx-auto">
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle>Fullscreen Code Snippet</CardTitle>
+            <Button variant="outline" size="sm" onClick={copyToClipboard}>
+              <Copy className="h-4 w-4 mr-2" />
+              Copy Code
+            </Button>
+          </CardHeader>
+          <CardContent>
+            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
+              <code className={`language-${language}`}>{decodeURIComponent(snippet)}</code>
+            </pre>
+          </CardContent>
+        </Card>
+        {notification && (
+          <Notification message={notification} onClose={() => setNotification(null)} />
+        )}
+      </div>
   )
 }
