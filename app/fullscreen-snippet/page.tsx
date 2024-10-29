@@ -1,23 +1,27 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Copy } from "lucide-react"
-import { toast } from "@/hooks/use-toast"
+import { useSearchParams } from 'next/navigation'
+import { useState } from "react"
+import Notification from "@/components/Notification"
 
 export default function FullscreenSnippet() {
   const searchParams = useSearchParams()
   const snippet = searchParams.get('snippet')
   const language = searchParams.get('language')
-
+  const [notification, setNotification] = useState<string | null>(null);
   const copyToClipboard = () => {
     if (snippet) {
       navigator.clipboard.writeText(snippet)
-      toast({
-        title: "Copied to clipboard",
-        description: "The code snippet has been copied to your clipboard.",
-      })
+
+      setNotification("Snippet copied to clipboard!");
+  
+      // toast({
+      //   title: "Copied to clipboard",
+      //   description: "The code snippet has been copied to your clipboard.",
+      // })
     }
   }
 
@@ -52,6 +56,9 @@ export default function FullscreenSnippet() {
           </pre>
         </CardContent>
       </Card>
+      {notification && (
+        <Notification message={notification} onClose={() => setNotification(null)} />
+      )}
     </div>
   )
 }
